@@ -1,0 +1,41 @@
+{
+  "name": "brandifyjs",
+  "version": "1.0.0",
+  "description": "JS tool which helps you to add company icons in your html text.",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/greybax/brandifyjs.git"
+  },
+  "keywords": [
+    "tool",
+    "simple-icons",
+    "brand",
+    "brands",
+    "branding",
+    "logos",
+    "replacer",
+    "svg",
+    "company",
+    "company-logo",
+    "icon-assets",
+    "assets"
+  ],
+  "author": {
+    "name": "Aleksandr Filatov",
+    "email": "greybax@gmail.com",
+    "url": "https://alfilatov.com"
+  },
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/greybax/brandifyjs/issues"
+  },
+  "homepage": "https://github.com/greybax/brandifyjs#readme",
+  "devDependencies": {
+    "chai": "^3.5.0",
+    "mocha": "^3.3.0"
+  }
+}
