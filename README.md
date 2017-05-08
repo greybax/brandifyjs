@@ -1,4 +1,4 @@
-# brandifyjs
+# BrandifyJS
 
 This is a JS library which helps you to add company icons in your html text. 
 Icons are using from awesome repository :fireworks: :rocket: - [simple-icons](https://github.com/danleech/simple-icons) 

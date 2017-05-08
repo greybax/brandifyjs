@@ -1,4 +1,4 @@
-const icons = require('./simple-icons/_data/simple-icons.json').icons;
+let icons = require('./simple-icons/_data/simple-icons.json').icons;
 const fs = require('fs');
 
 /**
@@ -39,7 +39,7 @@ module.exports = function brandify(defaults) {
    * generate string with class and fill color for svg element
    * 
    * @param {string} name 
-   * @param {number} hex format color 
+   * @param {number} hex format color
    * @returns {string}
    */
   function svgPatternReplacer(name, color) {
@@ -62,29 +62,77 @@ module.exports = function brandify(defaults) {
     return [text.slice(0, position), replacement, text.slice(position)].join('');
   };
 
+
+  function loadAllIcons(icons) {
+    return Promise.all(
+      icons.map((icon) => {
+        return getSvgContent(icon.title)
+          .then((data) => {
+            icon.svg = data;
+          });
+      })
+    );
+  }
+
   function exec(text) {
     if (!text) {
       throw new Error('text should be initialized with not empty value');
     }
 
-    for (let i = 0; i < icons.length; i++) {
-      const title = icons[i].title;
-      const color = icons[i].hex;
-      const searchValue = new RegExp(`${title}`, 'gi');
+    return loadAllIcons(icons).then(() => {
+      for (let i = 0; i < icons.length; i++) {
+        const title = icons[i].title;
+        const color = icons[i].hex;
+        const searchValue = new RegExp(`${title}`, 'gi');
 
-      if (title === 'Line') {
-        continue;
+        if (title === 'Line') {
+          continue;
+        }
+
+        if (text.match(searchValue)) {
+          if (typeof window !== 'undefined') {
+            return getSvgContent(title)
+              .then((data) => {
+                content = data;
+                const replacer = svgPatternReplacer(title, color);
+                const svg = insertTo(content, 4, replacer);
+                text = text.replace(searchValue, svg);
+                return text;
+              });
+          } else {
+            // if local env
+            const content = fs.readFileSync(`simple-icons/icons/${title}.svg`, 'utf8');
+            const replacer = svgPatternReplacer(title, color);
+            const svg = insertTo(content, 4, replacer);
+            text = text.replace(searchValue, svg);
+          }
+        }
       }
-
-      if (text.match(searchValue)) {
-        // if local env
-        const content = fs.readFileSync(`simple-icons/icons/${title}.svg`, 'utf8');
-        const replacer = svgPatternReplacer(title, color);
-        const svg = insertTo(content, 4, replacer);
-        text = text.replace(searchValue, svg);
-      }
-    }
-
-    return text;
+    })
+    .catch(data);
   };
+
 }
+
+let getSvgContent = (title) => {
+  return new Promise(function (resolve, reject) {
+    let xhr = new XMLHttpRequest();
+    xhr.open('GET', `simple-icons/icons/${title}.svg`, true);
+
+    xhr.onload = function () {
+      if (this.status == 200) {
+        resolve(this.response);
+      } else {
+        var error = new Error(this.statusText);
+        error.code = this.status;
+        reject(error);
+      }
+    };
+
+    xhr.onerror = function () {
+      reject(new Error("Network Error"));
+    };
+
+    xhr.send();
+  });
+};
