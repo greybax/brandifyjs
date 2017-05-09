@@ -72,24 +72,16 @@ module.exports = function brandify(defaults) {
     for (let i = 0; i < icons.length; i++) {
       const title = icons[i].title;
       const color = icons[i].hex;
-      const searchValue = new RegExp(`${title}`, 'gi');
+      const searchValue = new RegExp(`\\b(${title})\\b`, 'gi');
 
       if (title === 'Line') {
         continue;
       }
 
       if (text.match(searchValue)) {
-        if (typeof window !== 'undefined') {
-          const replacer = svgPatternReplacer(title, color);
-          const svg = insertTo(icons[i].svg, 4, replacer);
-          text = text.replace(searchValue, svg);
-        } else {
-          // if local env
-          const content = fs.readFileSync(`simple-icons/icons/${title}.svg`, 'utf8');
-          const replacer = svgPatternReplacer(title, color);
-          const svg = insertTo(content, 4, replacer);
-          text = text.replace(searchValue, svg);
-        }
+        const replacer = svgPatternReplacer(title, color);
+        const svg = insertTo(icons[i].svg, 4, replacer);
+        text = text.replace(searchValue, svg);
       }
     }
 

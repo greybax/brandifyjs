@@ -23,24 +23,25 @@
         <div class="header">
           <span class="caption">Source</span>
         </div>
-        <button id="brandifySource">Brandify</button>
         <textarea id="source" class="editor">
-          I like to use twitter and git every day. You can check my linkedin profile if you want.
-        </textarea>
+This is a text to brand icons replaced for lot of famous brands companies, tehnologies and tools...
+
+Twitter, Github, Instagram, Snapchat ...
+
+Microsoft, Apple, Amazon, linkedin ...
+
+Thanks for cool icons to simple icons!
+</textarea>
       </div>
       <div class="main-section" id="result">
         <div class="header">
-
+          <span class="caption">Output</span>
         </div>
         <div id="output" class="output"></div>
-        <div id="change-log">
-          <div class="header">Show transformations</div>
-          <div id="transformations" class="content"></div>
-        </div>
         <div class="stat-block">
           <div id="stat"></div>
           <div class="powered">
-            Powered by <a href="https://github.com/greybax/brandifyjs">BrandifyJS</a> <span id="version"></span>
+            Powered by <a href="https://github.com/greybax/brandifyjs">BrandifyJS</a> <br/> Theme by <a href="https://css.github.io/csso/csso.html">CSSO</a>
           </div>
         </div>
         <div id="error">
@@ -54,13 +55,15 @@
   </div>
 
   <script>
-    document.getElementById('brandifySource').addEventListener('click', process);
+    document.getElementById('source').addEventListener('input', process, false);
+    document.getElementById('source').addEventListener('keyup', process, false);
 
     function process() {
       document.getElementById('output').innerHTML = '';
       let result = brandify().exec(document.getElementById('source').value);
       document.getElementById('output').innerHTML = result;
     }
+    process();
   </script>
 </body>
 
