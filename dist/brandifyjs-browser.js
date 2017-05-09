@@ -80,7 +80,7 @@ module.exports = function brandify(defaults) {
 
       if (text.match(searchValue)) {
         const replacer = svgPatternReplacer(title, color);
-        const svg = insertTo(icons[i].svg, 4, replacer);
+        const svg = insertTo(icons[i].svg, '<svg'.length + 1, replacer);
         text = text.replace(searchValue, svg);
       }
     }
