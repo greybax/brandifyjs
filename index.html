@@ -59,9 +59,7 @@
     function process() {
       document.getElementById('output').innerHTML = '';
       let result = brandify().exec(document.getElementById('source').value);
-      result.then((text) => {
-        document.getElementById('output').innerHTML = text;
-      })
+      document.getElementById('output').innerHTML = result;
     }
   </script>
 </body>
