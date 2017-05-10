@@ -1,3 +1,5 @@
+'use strict';
+
 let icons = require('./jspm_packages/github/danleech/simple-icons@master/_data/simple-icons.json').icons;
 const fs = require('fs');
 
@@ -42,7 +44,7 @@ module.exports = function prepareSimpleIconsJson() {
 
     const replacer = svgPatternReplacer(name, color);
     const svg = insertTo(content, '<svg'.length + 1, replacer);
-    
+
     icons[i].svg = svg;
   }
 

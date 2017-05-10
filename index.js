@@ -1,3 +1,5 @@
+'use strict';
+
 let icons = require('./dist/simple-icons.json').icons;
 
 /**
