@@ -2,3 +2,4 @@ node_modules
 jspm_packages
 
 cSpell.json
+npm-debug.log
