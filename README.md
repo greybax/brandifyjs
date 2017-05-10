@@ -1,5 +1,8 @@
 # BrandifyJS
 
+[![Build Status][travis-image]][travis-url]
+[![Coveralls Status][coveralls-image]][coveralls-url]
+
 > This is a JS library which helps you to add company icons in your html text. 
 Icons are using from awesome repository :cherries: :rocket: - [simple-icons](https://github.com/danleech/simple-icons) 
 
@@ -32,3 +35,9 @@ Thanks for cool icons to <svg class="svg-brandify brandify-icon-simpleicons" fil
 ## License
 
 MIT © [Aleksandr Filatov](https://alfilatov.com)
+
+[travis-url]: https://travis-ci.org/greybax/brandifyjs
+[travis-image]: https://img.shields.io/travis/greybax/brandifyjs/master.svg?style=flat-square
+
+[coveralls-url]: https://coveralls.io/r/greybax/brandifyjs
+[coveralls-image]: https://img.shields.io/coveralls/greybax/brandifyjs/master.svg?style=flat-square
