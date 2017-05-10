@@ -21,12 +21,12 @@ describe('prepare', function () {
 
 describe('brandify', function () {
   it('should throw the error', function (done) {
-    assert.throws(() => brandify().exec(), 'text should be initialized with not empty value');
+    assert.throws(() => brandify(), 'text should be initialized with not empty value');
     done();
   });
 
   it('should replace brand names with icons', function (done) {
-    let newText = brandify().exec(myText);
+    let newText = brandify(myText);
     // TODO: here should be validation check
     console.log(newText);
     done();

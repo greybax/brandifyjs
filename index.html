@@ -24,7 +24,7 @@
           <span class="caption">Source</span>
         </div>
         <textarea id="source" class="editor">
-This is a text to brand icons replaced for lot of famous brands companies, tehnologies and tools
+This is a text to brand icons replaced for lot of famous brands companies, technologies and tools
 
 Twitter, Github, Instagram, Snapchat
 
@@ -62,7 +62,7 @@ P.S. Thanks for cool icons to simple icons!
 
     function process() {
       document.getElementById('output').innerHTML = '';
-      let result = brandify().exec(document.getElementById('source').value);
+      let result = brandify(document.getElementById('source').value);
       document.getElementById('output').innerHTML = result;
     }
     process();

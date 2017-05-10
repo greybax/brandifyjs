@@ -1,8 +1,6 @@
 let icons = require('./jspm_packages/github/danleech/simple-icons@master/_data/simple-icons.json').icons;
 const fs = require('fs');
 
-
-
 /**
  * generate string with class and fill color for svg element
  * 
@@ -30,6 +28,9 @@ function insertTo(text, position, replacement) {
   return [text.slice(0, position), replacement, text.slice(position)].join('');
 };
 
+/**
+ * Create simple-icons.json with some modifications (add .svg property) in /dist folder
+ */
 module.exports = function prepareSimpleIconsJson() {
   for (let i = 0; i < icons.length; i++) {
     let name = icons[i].title

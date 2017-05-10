@@ -13,12 +13,12 @@ You can play with BrandifyJS here [greybax.github.io/brandifyjs](https://greybax
 const brandify = require('./index');
 
 let myText = `
-This is a text to brand icons replaced for lot of famous brands companies, tehnologies and tools...
+This is a text to brand icons replaced for lot of famous brands companies, technologies and tools...
 Twitter, Github and more ...
 Thanks for cool icons to simple icons!
 `;
 
-let newText = brandify().exec(myText);
+let newText = brandify(myText);
 ```
 
 output:
