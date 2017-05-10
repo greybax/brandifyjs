@@ -1,7 +1,7 @@
 'use strict';
 
-const brandify = require('./index');
-const prepareSimpleIconsJson = require('./prepare');
+const brandify = require('./src/index');
+const helpers = require('./src/helpers');
 const chai = require('chai');
 
 let assert = chai.assert;
@@ -12,9 +12,9 @@ Twitter, Github and more ...
 Thanks for cool icons to simple icons!
 `;
 
-describe('prepare', function () {
+describe('helpers', function () {
   it('should generate dist/simple-icons.json', function (done) {
-    prepareSimpleIconsJson();
+    helpers.prepareSimpleIconsJson();
     done();
   });
 });

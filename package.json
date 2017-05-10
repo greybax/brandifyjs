@@ -2,16 +2,16 @@
   "name": "brandifyjs",
   "version": "1.0.0",
   "description": "JS tool which helps you to add company icons in your html text.",
-  "main": "index.js",
+  "main": "src/index.js",
   "scripts": {
     "install-all": "npm install & jspm install",
-    "init": "node init.js",
+    "init": "node src/init.js",
     "coverage": "istanbul cover _mocha",
     "precoveralls": "npm run coverage",
     "coveralls": "coveralls < coverage/lcov.info",
     "test": "mocha",
     "dev": "lite-server",
-    "browserify": "browserify -t package-json-versionify --standalone brandify index.js -o dist/brandifyjs-browser.js",
+    "browserify": "browserify -t package-json-versionify --standalone brandify src/index.js -o dist/brandifyjs-browser.js",
     "jspm": "jspm install github:danleech/simple-icons"
   },
   "repository": {
