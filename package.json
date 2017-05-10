@@ -8,7 +8,7 @@
     "coverage": "istanbul cover _mocha",
     "precoveralls": "npm run coverage",
     "coveralls": "coveralls < coverage/lcov.info",
-    "test": "npm run install-all & mocha",
+    "test": "mocha",
     "dev": "lite-server",
     "prepare:json": "//TODO here should be run command for prepare new simple-icons.json",
     "browserify": "browserify -t package-json-versionify --standalone brandify index.js -o dist/brandifyjs-browser.js",
