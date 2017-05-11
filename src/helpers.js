@@ -3,15 +3,11 @@
 const icons = require('../jspm_packages/github/danleech/simple-icons@master/_data/simple-icons.json').icons;
 const fs = require('fs');
 
-module.exports = process.env.NODE_ENV
-  ? {
-    prepareSimpleIconsJson
-    , svgPatternReplacer
-    , insertTo
-  }
-  : {
-    prepareSimpleIconsJson
-  }
+module.exports = {
+  prepareSimpleIconsJson
+  , svgPatternReplacer
+  , insertTo
+};
 
 /**
  * create ./dist/simple-icons.json with some modifications (add .svg property)
@@ -43,7 +39,7 @@ function prepareSimpleIconsJson() {
 /**
  * returns new string with 'class' and 'fill' attributes for svg element
  * 
- * @private
+ * @public
  * @param {string} name 
  * @param {number} hex format color
  * @returns {string}
@@ -66,7 +62,7 @@ function svgPatternReplacer(name, color) {
 /**
  * returns new string with replacement string
  * 
- * @private
+ * @public
  * @param {string} text 
  * @param {number} position 
  * @param {string} replacement 

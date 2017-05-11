@@ -5,11 +5,11 @@
   "main": "src/index.js",
   "scripts": {
     "install-all": "npm install & jspm install",
-    "init": "NODE_ENV= & set NODE_ENV= & node src/init.js",
+    "init": "node src/init.js",
     "coverage": "istanbul cover _mocha",
     "precoveralls": "npm run coverage",
     "coveralls": "coveralls < coverage/lcov.info",
-    "test": "NODE_ENV=test & set NODE_ENV=test & mocha",
+    "test": "mocha",
     "dev": "lite-server",
     "browserify": "browserify -t package-json-versionify --standalone brandify src/index.js -o dist/brandifyjs-browser.js",
     "jspm": "jspm install github:danleech/simple-icons"
