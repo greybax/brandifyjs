@@ -1,11 +1,16 @@
 'use strict';
 
 const icons = require('../dist/simple-icons.json').icons;
-const helpers = require('./helpers');
 
 /**
  * Replacing popular brands in text on svg icons of them
  * 
+ * @example
+ *
+ * 1. brandify(text) or brandify(text, 'replace')
+ * 2. brandify(text, 'before')
+ * 3. brandify(text, 'after')
+ *
  * @param {string} text
  * @param {any} params
  * @returns {string}
@@ -23,9 +28,9 @@ module.exports = function brandify(text, params) {
       if (typeof params === 'undefined' || params === 'replace') {
         text = text.replace(searchValue, icons[i].svg);
       } else if (params === 'before') {
-        text = text.replace(searchValue, `${title}&nbsp;${icons[i].svg}`);
-      } else if (params === 'after') {
         text = text.replace(searchValue, `${icons[i].svg}&nbsp;${title} `);
+      } else if (params === 'after') {
+        text = text.replace(searchValue, `${title}&nbsp;${icons[i].svg}`);
       }
     }
   }

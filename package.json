@@ -9,7 +9,7 @@
     "coverage": "istanbul cover _mocha",
     "precoveralls": "npm run coverage",
     "coveralls": "coveralls < coverage/lcov.info",
-    "test": "mocha",
+    "test": "set NODE_ENV=test & mocha",
     "dev": "lite-server",
     "browserify": "browserify -t package-json-versionify --standalone brandify src/index.js -o dist/brandifyjs-browser.js",
     "jspm": "jspm install github:danleech/simple-icons"
@@ -44,10 +44,11 @@
   },
   "homepage": "https://github.com/greybax/brandifyjs#readme",
   "devDependencies": {
-    "coveralls": "^2.13.1",
-    "istanbul": "^0.4.5",
     "browserify": "^14.3.0",
     "chai": "^3.5.0",
+    "chai-files": "^1.4.0",
+    "coveralls": "^2.13.1",
+    "istanbul": "^0.4.5",
     "jspm": "^0.16.53",
     "lite-server": "^2.3.0",
     "mocha": "^3.3.0",

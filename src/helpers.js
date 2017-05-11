@@ -3,39 +3,15 @@
 const icons = require('../jspm_packages/github/danleech/simple-icons@master/_data/simple-icons.json').icons;
 const fs = require('fs');
 
-module.exports = {
-  insertTo,
-  prepareSimpleIconsJson
-}
-
-/**
- * returns new string with 'class' and 'fill' attributes for svg element
- * 
- * @private
- * @param {string} name 
- * @param {number} hex format color
- * @returns {string}
- */
-function svgPatternReplacer(name, color) {
-  name = name
-    .toLowerCase()
-    .replace(' ', '');
-
-  return `class="svg-brandify brandify-icon-${name}" fill="#${color}" `;
-};
-
-/**
- * returns new string with replacement string
- * 
- * @public
- * @param {string} text 
- * @param {number} position 
- * @param {string} replacement 
- * @returns {string}
- */
-function insertTo(text, position, replacement) {
-  return [text.slice(0, position), replacement, text.slice(position)].join('');
-};
+module.exports = process.env.NODE_ENV.indexOf('test') > -1
+  ? {
+    prepareSimpleIconsJson
+    , svgPatternReplacer
+    , insertTo
+  }
+  : {
+    prepareSimpleIconsJson
+  }
 
 /**
  * create ./dist/simple-icons.json with some modifications (add .svg property)
@@ -43,6 +19,10 @@ function insertTo(text, position, replacement) {
  * @public
  */
 function prepareSimpleIconsJson() {
+  if (!icons) {
+    return;
+  }
+
   for (let i = 0; i < icons.length; i++) {
     let name = icons[i].title
       .toLowerCase()
@@ -58,4 +38,44 @@ function prepareSimpleIconsJson() {
   }
 
   fs.writeFileSync('./dist/simple-icons.json', `{"icons": ${JSON.stringify(icons)}}`, 'utf-8');
+};
+
+/**
+ * returns new string with 'class' and 'fill' attributes for svg element
+ * 
+ * @private
+ * @param {string} name 
+ * @param {number} hex format color
+ * @returns {string}
+ */
+function svgPatternReplacer(name, color) {
+  if (!name) {
+    return '';
+  }
+  name = name
+    .toLowerCase()
+    .replace(' ', '');
+
+  if (!color) {
+    return `class="svg-brandify brandify-icon-${name}" `;
+  }
+
+  return `class="svg-brandify brandify-icon-${name}" fill="#${color}" `;
+};
+
+/**
+ * returns new string with replacement string
+ * 
+ * @private
+ * @param {string} text 
+ * @param {number} position 
+ * @param {string} replacement 
+ * @returns {string}
+ */
+function insertTo(text, position, replacement) {
+  if (!text) {
+    return '';
+  }
+
+  return [text.slice(0, position), replacement, text.slice(position)].join('');
 };
