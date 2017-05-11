@@ -23,9 +23,9 @@ module.exports = function brandify(text, params) {
       if (typeof params === 'undefined' || params === 'replace') {
         text = text.replace(searchValue, icons[i].svg);
       } else if (params === 'before') {
-        text = text.replace(searchValue, `${title} ${icons[i].svg}`);
+        text = text.replace(searchValue, `${title}&nbsp;${icons[i].svg}`);
       } else if (params === 'after') {
-        text = text.replace(searchValue, `${icons[i].svg} ${title} `);
+        text = text.replace(searchValue, `${icons[i].svg}&nbsp;${title} `);
       }
     }
   }
