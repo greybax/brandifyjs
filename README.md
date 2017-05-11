@@ -13,8 +13,7 @@ Icons are using from cool repository :cherries: :rocket: - [simple-icons](https:
 
 ## Where I can use it?
 
-I'm not sure about all places where you can use it, it's depends on your imagination.
-As pe me I'm going to use it in my blog on 'About' page. Hope that this tool will make your page looks good.
+I'm going to use it in my blog on 'About' page. But I believe that this is not one place for using it. Hope that this tool will make your page looks good.
 
 ## Playground:
 
@@ -50,7 +49,7 @@ Clone the repo.
 // install npm and jspm scripts
 npm run install-all
 
-// create modifying dist/simple-icons.json
+// create modified dist/simple-icons.json
 npm run init
 
 // create browser script in dist/brandifyjs-browser.js

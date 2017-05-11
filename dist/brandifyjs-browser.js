@@ -1696,9 +1696,9 @@ module.exports = function brandify(text, params) {
       if (typeof params === 'undefined' || params.replace) {
         text = text.replace(searchValue, icons[i].svg);
       } else if (params.before) {
-
+        //TODO: insert svg before searchValue here
       } else if (params.after) {
-        
+        //TODO: insert svg after searchValue here
       }
     }
   }

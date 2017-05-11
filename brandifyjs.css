@@ -93,21 +93,15 @@ BODY {
 
   transition: all .100s;
 }
-.stat-block {
+.share-block {
   padding: 5px 10px;
   background: #D8E8F8;
   display: flex;
-  align-items: flex-end;
+  align-items: center;
 }
 .powered {
   flex: 1;
   text-align: right;
-}
-#stat {
-  white-space: pre-wrap;
-  font-family: Consolas, Monaco, Courier New, monospace;
-  font-size: 12px;
-  line-height: 1.4;
 }
 
 #result {
