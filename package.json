@@ -9,7 +9,7 @@
     "coverage": "istanbul cover _mocha",
     "precoveralls": "npm run coverage",
     "coveralls": "coveralls < coverage/lcov.info",
-    "test": "set NODE_ENV=test & mocha",
+    "test": "NODE_ENV=test & set NODE_ENV=test & mocha",
     "dev": "lite-server",
     "browserify": "browserify -t package-json-versionify --standalone brandify src/index.js -o dist/brandifyjs-browser.js",
     "jspm": "jspm install github:danleech/simple-icons"
