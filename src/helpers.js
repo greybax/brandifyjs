@@ -9,7 +9,7 @@ module.exports = {
 }
 
 /**
- * generate string with 'class' and 'fill' attributes for svg element
+ * returns new string with 'class' and 'fill' attributes for svg element
  * 
  * @private
  * @param {string} name 
@@ -25,7 +25,7 @@ function svgPatternReplacer(name, color) {
 };
 
 /**
- * create new string with replacement string
+ * returns new string with replacement string
  * 
  * @public
  * @param {string} text 
@@ -38,7 +38,7 @@ function insertTo(text, position, replacement) {
 };
 
 /**
- * Create simple-icons.json with some modifications (add .svg property) in /dist folder
+ * create ./dist/simple-icons.json with some modifications (add .svg property)
  * 
  * @public
  */

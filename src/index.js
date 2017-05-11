@@ -20,12 +20,12 @@ module.exports = function brandify(text, params) {
     const searchValue = new RegExp(`\\b(${title})\\b`, 'gi');
 
     if (text.match(searchValue)) {
-      if (typeof params === 'undefined' || params.replace) {
+      if (typeof params === 'undefined' || params === 'replace') {
         text = text.replace(searchValue, icons[i].svg);
-      } else if (params.before) {
-        //TODO: insert svg before searchValue here
-      } else if (params.after) {
-        //TODO: insert svg after searchValue here
+      } else if (params === 'before') {
+        text = text.replace(searchValue, `${title} ${icons[i].svg}`);
+      } else if (params === 'after') {
+        text = text.replace(searchValue, `${icons[i].svg} ${title} `);
       }
     }
   }
