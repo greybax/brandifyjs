@@ -11,6 +11,11 @@ So what about transform typical words in text to icon? This tool is all about it
 > This is a JS library which helps you to add company icons in your text.
 Icons are using from cool repository :cherries: :rocket: - [simple-icons](https://github.com/danleech/simple-icons) 
 
+## Where I can use it?
+
+I'm not sure about all places where you can use it, it's depends on your imagination.
+As pe me I'm going to use it in my blog on 'About' page. Hope that this tool will make your page looks good.
+
 ## Playground:
 
 You can try BrandifyJS here [greybax.github.io/brandifyjs](https://greybax.github.io/brandifyjs) 
