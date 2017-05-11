@@ -1,7 +1,7 @@
 {
   "name": "brandifyjs",
   "version": "1.0.0",
-  "description": "JS tool which helps you to add company icons in your html text.",
+  "description": "Text transformer/replacer with SVG icons for popular brands",
   "main": "src/index.js",
   "scripts": {
     "install-all": "npm install & jspm install",
