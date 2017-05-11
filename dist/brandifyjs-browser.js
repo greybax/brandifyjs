@@ -8,6 +8,12 @@ const icons = require('../dist/simple-icons.json').icons;
 /**
  * Replacing popular brands in text on svg icons of them
  * 
+ * @example
+ *
+ * 1. brandify(text) or brandify(text, 'replace')
+ * 2. brandify(text, 'before')
+ * 3. brandify(text, 'after')
+ *
  * @param {string} text
  * @param {any} params
  * @returns {string}

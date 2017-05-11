@@ -5,7 +5,7 @@
   "main": "src/index.js",
   "scripts": {
     "install-all": "npm install & jspm install",
-    "init": "node src/init.js",
+    "init": "NODE_ENV= & set NODE_ENV= & node src/init.js",
     "coverage": "istanbul cover _mocha",
     "precoveralls": "npm run coverage",
     "coveralls": "coveralls < coverage/lcov.info",

@@ -3,7 +3,7 @@
 const icons = require('../jspm_packages/github/danleech/simple-icons@master/_data/simple-icons.json').icons;
 const fs = require('fs');
 
-module.exports = process.env.NODE_ENV.indexOf('test') > -1
+module.exports = process.env.NODE_ENV
   ? {
     prepareSimpleIconsJson
     , svgPatternReplacer
