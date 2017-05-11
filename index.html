@@ -2,7 +2,22 @@
 <html>
 
 <head>
-  <title>BrandifyJS – JS Tool for adding to your text popular brands</title>
+  <meta charset="utf-8">
+  <meta content="initial-scale=1, shrink-to-fit=no, width=device-width" name="viewport">
+  <link rel="preconnect" href="//github.com">
+  <title>BrandifyJS</title>
+  <meta name="description" content="JS Tool for adding to your text popular brand icons.">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="BrandifyJS">
+  <meta property="og:description" content="JS Tool for adding to your text popular brand icons.">
+  <meta property="og:url" content="https://greybax.github.io/brandifyjs">
+  <meta property="og:site_name" content="BrandifyJS">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="BrandifyJS">
+  <meta name="twitter:description" content="JS Tool for adding to your text popular brand icons.">
+  <meta name="twitter:site" content="@greybax">
+  <meta name="twitter:domain" content="BrandifyJS">
+
   <link rel="stylesheet" href="brandifyjs.css" type="text/css">
   <style>
     .svg-brandify {
@@ -56,11 +71,12 @@ P.S. Thanks for cool icons to simple icons!
         <div id="output" class="output"></div>
         <div class="share-block">
           <a class="twitter-share-button" href="https://twitter.com/intent/tweet?related=danleech%3Asvg icons set&hashtags=simple-icons,js,javascript&url=https://greybax.github.io/brandifyjs&via=greybax&text=BrandifyJS: text modifier with SVG icons for popular brands">
-            Share this on Twitter!
+            Tweet
           </a>
           <div class="powered">
-            Powered by <a target="_blank" href="https://github.com/greybax/brandifyjs">BrandifyJS</a> <br/> Theme: <a target="_blank"
-              href="https://css.github.io/csso/csso.html">CSSO</a> playground <br/> Icons: <a target="_blank" href="https://github.com/danleech/simple-icons">Simple-icons</a>
+            Powered by <a target="_blank" href="https://github.com/greybax/brandifyjs">BrandifyJS</a> <br/> 
+            Theme: <a target="_blank" href="https://css.github.io/csso/csso.html">CSSO</a> playground <br/> 
+            Icons: <a target="_blank" href="https://github.com/danleech/simple-icons">Simple-icons</a>
           </div>
         </div>
       </div>
@@ -79,13 +95,13 @@ P.S. Thanks for cool icons to simple icons!
       document.getElementById('output').innerHTML = '';
       let result = '';
       if (document.querySelector('input[id=before]:checked')) {
-         result = brandify(document.getElementById('source').value, 'before');
+        result = brandify(document.getElementById('source').value, 'before');
       }
       if (document.querySelector('input[id=replace]:checked')) {
-         result = brandify(document.getElementById('source').value, 'replace');
+        result = brandify(document.getElementById('source').value, 'replace');
       }
       if (document.querySelector('input[id=after]:checked')) {
-         result = brandify(document.getElementById('source').value, 'after');
+        result = brandify(document.getElementById('source').value, 'after');
       }
       document.getElementById('output').innerHTML = result;
     }
