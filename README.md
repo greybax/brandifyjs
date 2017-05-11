@@ -1,5 +1,6 @@
 # BrandifyJS
 
+[![NPM version][npm-image]][npm-url]
 [![Build Status][travis-image]][travis-url]
 [![Coveralls Status][coveralls-image]][coveralls-url]
 [![Dependency Status][depstat-image]][depstat-url]
@@ -22,7 +23,7 @@ You can try BrandifyJS here [greybax.github.io/brandifyjs](https://greybax.githu
 ## How to Use:
 
 ```js
-const brandify = require('./index');
+const brandify = require('brandifyjs');
 
 let myText = `
 This is a text to brand icons replaced for lot of famous brands companies, technologies and tools...
@@ -78,6 +79,9 @@ npm test
 ## License
 
 MIT © [Aleksandr Filatov](https://alfilatov.com)
+
+[npm-url]: https://npmjs.org/package/brandifyjs
+[npm-image]: https://img.shields.io/npm/v/brandifyjs.svg
 
 [travis-url]: https://travis-ci.org/greybax/brandifyjs
 [travis-image]: https://img.shields.io/travis/greybax/brandifyjs/master.svg?style=flat-square
