@@ -11,7 +11,7 @@
     "coveralls": "coveralls < coverage/lcov.info",
     "test": "mocha",
     "dev": "lite-server",
-    "browserify": "browserify -t package-json-versionify --standalone brandify src/index.js -o dist/brandifyjs-browser.js",
+    "browserify": "browserify -t package-json-versionify --standalone brandify src/index.js | uglifyjs --compress --mangle -o dist/brandifyjs-browser.js",
     "jspm": "jspm install github:danleech/simple-icons"
   },
   "repository": {
@@ -54,7 +54,7 @@
     "mocha": "^3.3.0",
     "mocha-lcov-reporter": "^1.3.0",
     "package-json-versionify": "^1.0.4",
-    "uglifyjs": "^2.4.10"
+    "uglify-es": "^3.0.3"
   },
   "jspm": {
     "dependencies": {
