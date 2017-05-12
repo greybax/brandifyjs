@@ -27,7 +27,7 @@ module.exports = function brandify(text, params) {
     if (title.toLowerCase() === 'google') {
       searchValue = new RegExp(/google/gi);
     } else if (title.toLowerCase() === 'google+') {
-      searchValue = new RegExp(/google[.]\+/gi);
+      searchValue = new RegExp(/google\+/gi);
     } else {
       searchValue = new RegExp(`\\b(${title})\\b`, 'gi');
     }
