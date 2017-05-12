@@ -25,7 +25,15 @@ module.exports = function brandify(text, params) {
 
   for (let i = 0; i < icons.length; i++) {
     const title = icons[i].title;
-    const searchValue = new RegExp(`\\b(${title})\\b`, 'gi');
+    let searchValue = '';
+
+    if (title.toLowerCase() === 'google') {
+      searchValue = new RegExp(/google/gi);
+    } else if (title.toLowerCase() === 'google+') {
+      searchValue = new RegExp(/google[.]\+/gi);
+    } else {
+      searchValue = new RegExp(`\\b(${title})\\b`, 'gi');
+    }
 
     if (text.match(searchValue)) {
       if (typeof params === 'undefined' || params === 'replace') {
