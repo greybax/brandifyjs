@@ -25,7 +25,7 @@ You can try BrandifyJS web interface: [greybax.github.io/brandifyjs](https://gre
 ### 1. NPM
 
 ```
-npm install --save brandifyjs
+npm install brandifyjs
 ```
 
 ```js
