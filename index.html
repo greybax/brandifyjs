@@ -28,7 +28,8 @@
 
 <body>
   <script type="text/javascript" async src="https://platform.twitter.com/widgets.js"></script>
-  <script src="dist/brandifyjs-browser.js"></script>
+  <script type="text/javascript" src="lib/clipboard.min.js"></script>
+  <script type="text/javascript" src="dist/brandifyjs-browser.js"></script>
 
   <div class="layout">
     <div class="toolbar">
@@ -57,16 +58,21 @@ P.S. Thanks for cool icons to simple icons!
       </div>
       <div class="main-section" id="result">
         <div class="header">
-          <span class="caption">Output</span>
-          <label for="before">
-            <input type="radio" name="brandify-params" id="before" value="before"> Before
-          </label>
-          <label for="replace">
-            <input type="radio" name="brandify-params" id="replace" value="replace" checked> Replace
-          </label>
-          <label for="after">
-            <input type="radio" name="brandify-params" id="after" value="after"> After
-          </label>
+          <div class="left">
+            <span class="caption">Output</span>
+            <button id="copyOutput">Copy markup</button>
+          </div>
+          <div class="right">
+            <label for="before">
+              <input type="radio" name="brandify-params" id="before" value="before"> Before
+            </label>
+            <label for="replace">
+              <input type="radio" name="brandify-params" id="replace" value="replace" checked> Replace
+            </label>
+            <label for="after">
+              <input type="radio" name="brandify-params" id="after" value="after"> After
+            </label>
+          </div>
         </div>
         <div id="output" class="output"></div>
         <div class="share-block">
@@ -74,34 +80,47 @@ P.S. Thanks for cool icons to simple icons!
             Tweet
           </a>
           <div class="powered">
-            Powered by <a target="_blank" href="https://github.com/greybax/brandifyjs">BrandifyJS</a> <br/> 
-            Theme: <a target="_blank" href="https://css.github.io/csso/csso.html">CSSO</a> playground <br/> 
-            Icons: <a target="_blank" href="https://github.com/danleech/simple-icons">Simple-icons</a>
+            Powered by <a target="_blank" href="https://github.com/greybax/brandifyjs">BrandifyJS</a> <br/> Theme: <a target="_blank"
+              href="https://css.github.io/csso/csso.html">CSSO</a> playground <br/> Icons: <a target="_blank" href="https://github.com/danleech/simple-icons">Simple-icons</a>
           </div>
         </div>
       </div>
     </div>
   </div>
 
-  <script>
-    document.getElementById('source').addEventListener('input', process, false);
-    document.getElementById('source').addEventListener('keyup', process, false);
+  <script type="text/javascript">
+    const btnCopy = document.getElementById('copyOutput');
+    btnCopy.addEventListener('click', copyOutput, false);
+
+    const source = document.getElementById('source');
+    source.addEventListener('input', process, false);
+    source.addEventListener('keyup', process, false);
 
     document.getElementById('before').addEventListener('change', process, false);
     document.getElementById('replace').addEventListener('change', process, false);
     document.getElementById('after').addEventListener('change', process, false);
 
+    function copyOutput() {
+      clipboard.copy(document.getElementById('output').innerHTML);
+      btnCopy.textContent = 'Copied!';
+      btnCopy.disabled = true;
+      setTimeout(() => {
+        btnCopy.textContent = 'Copy markup';
+        btnCopy.disabled = false;
+      }, 500);
+    }
+
     function process() {
       document.getElementById('output').innerHTML = '';
       let result = '';
       if (document.querySelector('input[id=before]:checked')) {
-        result = brandify(document.getElementById('source').value, 'before');
+        result = brandify(source.value, 'before');
       }
       if (document.querySelector('input[id=replace]:checked')) {
-        result = brandify(document.getElementById('source').value, 'replace');
+        result = brandify(source.value, 'replace');
       }
       if (document.querySelector('input[id=after]:checked')) {
-        result = brandify(document.getElementById('source').value, 'after');
+        result = brandify(source.value, 'after');
       }
       document.getElementById('output').innerHTML = result;
     }

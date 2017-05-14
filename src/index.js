@@ -17,7 +17,7 @@ const icons = require('../dist/simple-icons.json').icons;
  */
 module.exports = function brandify(text, params) {
   if (!text) {
-    throw new Error('text should be initialized with not empty value');
+    return '';
   }
 
   for (let i = 0; i < icons.length; i++) {

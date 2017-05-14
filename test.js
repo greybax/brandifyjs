@@ -50,8 +50,9 @@ describe('helpers', function () {
 });
 
 describe('brandify', function () {
-  it('should throw the error', function (done) {
-    expect(() => brandify()).throws('text should be initialized with not empty value');
+  it('should return empty string', function (done) {
+    let str = brandify();
+    expect(str).is.empty;
     done();
   });
 

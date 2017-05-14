@@ -38,15 +38,18 @@ BODY {
 }
 .header {
   display: flex;
-  flex: 0 0 auto;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: stretch;
   padding: 10px;
+  align-content: stretch;
   background: #0381d3;
   color: white;
 }
 .caption {
   font-size: 140%;
-  line-height: 1;
-  flex: 1;
+  margin-right: 20px;
 }
 .header LABEL {
   padding-left: 15px;
