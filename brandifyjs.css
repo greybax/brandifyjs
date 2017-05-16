@@ -107,6 +107,51 @@ BODY {
   text-align: right;
 }
 
-#result {
-  position: relative;
+#change-log {
+    transition: all .100s;
+    display: flex;
+    flex-direction: column;
+}
+#change-log .header {
+    display: block;
+    font-size: 10px;
+    padding: 4px 10px;
+    text-align: center;
+    cursor: pointer;
+}
+#change-log .content {
+    overflow: auto;
+    background: #F4F4FA;
+    transition: .100s;
+    transition-property: padding, height;
+    padding: 10px;
+}
+#result.show-transformations #change-log .content {
+    flex: 1;
+    padding: 10px;
+}
+#change-log H2 {
+    display: inline-block;
+    padding: 2px 5px 1px;
+    position: relative;
+    left: -5px;
+    color: #AAA;
+    background: rgba(255, 255, 255, .65);
+    margin: 0 0 .5em;
+    font-size: 14px;
+    font-weight: normal;
+}
+#change-log .header:hover {
+    background: #26A;
+}
+
+#change-log .content,
+#result.show-transformations .output {
+    flex: 0;
+    height: 0;
+    padding-top: 0;
+    padding-bottom: 0;
+}
+#result.show-transformations #change-log {
+    flex: 1;
 }

@@ -75,6 +75,10 @@ P.S. Thanks for cool icons to simple icons!
           </div>
         </div>
         <div id="output" class="output"></div>
+        <div id="change-log">
+          <div class="header">Show HTML</div>
+          <div id="transformations" class="content"></div>
+        </div>
         <div class="share-block">
           <a class="twitter-share-button" href="https://twitter.com/intent/tweet?related=danleech%3Asvg icons set&hashtags=simple-icons,js,javascript&url=https://greybax.github.io/brandifyjs&via=greybax&text=BrandifyJS: text modifier with SVG icons for popular brands">
             Tweet
@@ -100,6 +104,14 @@ P.S. Thanks for cool icons to simple icons!
     document.getElementById('replace').addEventListener('change', process, false);
     document.getElementById('after').addEventListener('change', process, false);
 
+    const result = document.getElementById('result');
+    document.querySelector('#change-log .header').addEventListener('click', function () {
+      result.classList.toggle('show-transformations');
+      if (result.classList.contains('show-transformations')) {
+        process();
+      }
+    }, false);
+
     function copyOutput() {
       clipboard.copy(document.getElementById('output').innerHTML);
       btnCopy.textContent = 'Copied!';
@@ -112,6 +124,7 @@ P.S. Thanks for cool icons to simple icons!
 
     function process() {
       document.getElementById('output').innerHTML = '';
+      document.getElementById('transformations').innerHTML = '';
       let result = '';
       if (document.querySelector('input[id=before]:checked')) {
         result = brandify(source.value, 'before');
@@ -123,6 +136,7 @@ P.S. Thanks for cool icons to simple icons!
         result = brandify(source.value, 'after');
       }
       document.getElementById('output').innerHTML = result;
+      document.getElementById('transformations').innerText = result;
     }
     process();
   </script>
