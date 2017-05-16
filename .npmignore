@@ -8,6 +8,7 @@ coverage
 
 cSpell.json
 
+# exclude playground page
 lib
 brandifyjs.css
 index.html
