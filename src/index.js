@@ -1,6 +1,7 @@
 'use strict';
 
 const icons = require('../dist/simple-icons.json').icons;
+const isHtml = require('is-html');
 
 /**
  * Replacing popular brands in text on svg icons of them
@@ -16,6 +17,38 @@ const icons = require('../dist/simple-icons.json').icons;
  * @returns {string}
  */
 module.exports = function brandify(text, params) {
+  if (!text) {
+    return '';
+  }
+
+  // string as html
+  if (isHtml(text)) {
+    let result = '';
+
+    const div = document.createElement('div');
+    div.innerHTML = text;
+    const elements = div.childNodes;
+
+    for (let i = 0; i < elements.length; i++) {
+      elements[i].innerText = replaceIconsInPlainText(elements[i].innerText, params);
+      result += elements[i].outerHTML;
+    }
+
+    return result;
+  }
+
+  // plain string
+  return replaceIconsInPlainText(text, params);
+};
+
+/**
+ * Replace any coincidences from simple-icons names in plain text
+ * 
+ * @param {string} text 
+ * @param {any} params 
+ * @returns {string}
+ */
+function replaceIconsInPlainText(text, params) {
   if (!text) {
     return '';
   }
@@ -44,4 +77,4 @@ module.exports = function brandify(text, params) {
   }
 
   return text;
-};
+}
