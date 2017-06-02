@@ -57,6 +57,13 @@ function replaceIconsInPlainText(text, params) {
     return '';
   }
 
+  // do not replace URLs
+  // regex pattern from here: https://stackoverflow.com/a/8218223/2173016
+  const urlPattern = /(http|ftp|https):\/\/[\w-]+(\.[\w-]+)+([\w.,@?^=%&amp;:\/~+#-]*[\w@?^=%&amp;\/~+#-])?/;
+  if (text.match(urlPattern)) {
+    return text;
+  }
+
   for (let i = 0; i < icons.length; i++) {
     const title = icons[i].title;
     let searchValue = '';
