@@ -30,8 +30,12 @@ module.exports = function brandify(text, params) {
     const elements = div.childNodes;
 
     for (let i = 0; i < elements.length; i++) {
-      elements[i].innerText = replaceIconsInPlainText(elements[i].innerText, params);
-      result += elements[i].outerHTML;
+      if (elements[i].innerText !== undefined) {
+        elements[i].innerHTML = replaceIconsInPlainText(elements[i].innerText, params);
+        result += elements[i].outerHTML;
+      } else {
+        result += replaceIconsInPlainText(elements[i].textContent, params);
+      }
     }
 
     return result;
