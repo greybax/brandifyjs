@@ -2,6 +2,7 @@
 
 const icons = require('../dist/simple-icons.json').icons;
 const isHtml = require('is-html');
+const Stack = require('stack-data').Stack;
 
 /**
  * Replacing popular brands in text on svg icons of them
@@ -30,12 +31,7 @@ module.exports = function brandify(text, params) {
     const elements = div.childNodes;
 
     for (let i = 0; i < elements.length; i++) {
-      if (elements[i].innerText !== undefined) {
-        elements[i].innerHTML = replaceIconsInPlainText(elements[i].innerText, params);
-        result += elements[i].outerHTML;
-      } else {
-        result += replaceIconsInPlainText(elements[i].textContent, params);
-      }
+      result += treeWalker(elements[i].outerHTML);
     }
 
     return result;
@@ -44,6 +40,46 @@ module.exports = function brandify(text, params) {
   // plain string
   return replaceIconsInPlainText(text, params);
 };
+
+function treeWalker(node, path) {
+  let stack = new Stack();
+  stack = walkDown(node, stack);
+  let htmlString = walkUp(stack);
+  return htmlString;
+}
+
+function walkDown(node, stack) {
+  if (isHtml(node)) {
+    const div = document.createElement('div');
+    div.innerHTML = node;
+    stack.push(div.childNodes[0]);
+
+    return walkDown(div.childNodes[0].innerHTML.trim(), stack);
+  } else {
+    stack.push(replaceIconsInPlainText(node));
+
+    return stack;
+  }
+}
+
+function walkUp(stack, htmlString) {
+  if (stack.size > 0) {
+    let node = stack.pop();
+
+    const div = document.createElement('div');
+    // if took first element from stack
+    if (!htmlString) {
+      div.innerHTML = node;
+      return walkUp(stack, div.innerHTML);
+    } else {
+      div.innerHTML = htmlString;
+      node.innerHTML = div.childNodes[0].outerHTML;
+      return walkUp(stack, node.outerHTML);
+    }
+  } else {
+    return htmlString;
+  }
+}
 
 /**
  * Replace any coincidences from simple-icons names in plain text

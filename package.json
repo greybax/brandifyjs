@@ -68,6 +68,7 @@
     }
   },
   "dependencies": {
-    "is-html": "^1.1.0"
+    "is-html": "^1.1.0",
+    "stack-data": "^1.2.0"
   }
 }
