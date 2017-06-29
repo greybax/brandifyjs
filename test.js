@@ -67,6 +67,13 @@ const nestedHtmlTags = `
   youtube
 `;
 
+const list = `<ul class="linkedin class-icon">
+  <li class="google icon">
+   google <a class="google icon"> google </a>
+  </li>
+</ul>
+`;
+
 describe('brandify', () => {
   it('should return empty string', (done) => {
     let str = brandify();

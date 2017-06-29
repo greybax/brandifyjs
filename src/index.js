@@ -26,17 +26,9 @@ module.exports = function brandify(text, params) {
     let result = '';
 
     const div = document.createElement('div');
-    div.innerHTML = text;
-    const elements = div.childNodes;
+    div.innerHTML = text.trim();
 
-    for (let i = 0; i < elements.length; i++) {
-      if (elements[i].innerText !== undefined) {
-        elements[i].innerHTML = replaceIconsInPlainText(elements[i].innerText, params);
-        result += elements[i].outerHTML;
-      } else {
-        result += replaceIconsInPlainText(elements[i].textContent, params);
-      }
-    }
+    result = treeWalker(div, params);
 
     return result;
   }
@@ -44,6 +36,28 @@ module.exports = function brandify(text, params) {
   // plain string
   return replaceIconsInPlainText(text, params);
 };
+
+function treeWalker(node, params) {
+  let treeWalker = document.createTreeWalker(
+    node,
+    NodeFilter.SHOW_TEXT,
+    {
+      acceptNode: function (node) {
+        return NodeFilter.FILTER_ACCEPT;
+      }
+    },
+    false
+  );
+
+  while (treeWalker.nextNode()) {
+    treeWalker.currentNode.nodeValue = replaceIconsInPlainText(treeWalker.currentNode.nodeValue, params);
+  }
+
+  return treeWalker.root.outerHTML
+    .replace(/&lt;/gi, '<')
+    .replace(/&gt;/gi, '>')
+    .replace(/&nbsp;/gi, ' ');
+}
 
 /**
  * Replace any coincidences from simple-icons names in plain text

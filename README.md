@@ -71,7 +71,7 @@ Thanks for cool icons to <svg class="svg-brandify brandify-icon-simpleicons" fil
 ## Development
 
 Clone the repo.
-
+    
 ```
 // install npm and jspm scripts
 npm run install-all
