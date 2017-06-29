@@ -2,7 +2,6 @@
 
 const icons = require('../dist/simple-icons.json').icons;
 const isHtml = require('is-html');
-const Stack = require('stack-data').Stack;
 
 /**
  * Replacing popular brands in text on svg icons of them
@@ -27,12 +26,9 @@ module.exports = function brandify(text, params) {
     let result = '';
 
     const div = document.createElement('div');
-    div.innerHTML = text;
-    const elements = div.childNodes;
+    div.innerHTML = text.trim();
 
-    for (let i = 0; i < elements.length; i++) {
-      result += treeWalker(elements[i].outerHTML);
-    }
+    result = treeWalker(div, params);
 
     return result;
   }
@@ -41,44 +37,26 @@ module.exports = function brandify(text, params) {
   return replaceIconsInPlainText(text, params);
 };
 
-function treeWalker(node, path) {
-  let stack = new Stack();
-  stack = walkDown(node, stack);
-  let htmlString = walkUp(stack);
-  return htmlString;
-}
+function treeWalker(node, params) {
+  let treeWalker = document.createTreeWalker(
+    node,
+    NodeFilter.SHOW_TEXT,
+    {
+      acceptNode: function (node) {
+        return NodeFilter.FILTER_ACCEPT;
+      }
+    },
+    false
+  );
 
-function walkDown(node, stack) {
-  if (isHtml(node)) {
-    const div = document.createElement('div');
-    div.innerHTML = node;
-    stack.push(div.childNodes[0]);
-
-    return walkDown(div.childNodes[0].innerHTML.trim(), stack);
-  } else {
-    stack.push(replaceIconsInPlainText(node));
-
-    return stack;
+  while (treeWalker.nextNode()) {
+    treeWalker.currentNode.nodeValue = replaceIconsInPlainText(treeWalker.currentNode.nodeValue, params);
   }
-}
 
-function walkUp(stack, htmlString) {
-  if (stack.size > 0) {
-    let node = stack.pop();
-
-    const div = document.createElement('div');
-    // if took first element from stack
-    if (!htmlString) {
-      div.innerHTML = node;
-      return walkUp(stack, div.innerHTML);
-    } else {
-      div.innerHTML = htmlString;
-      node.innerHTML = div.childNodes[0].outerHTML;
-      return walkUp(stack, node.outerHTML);
-    }
-  } else {
-    return htmlString;
-  }
+  return treeWalker.root.outerHTML
+    .replace(/&lt;/gi, '<')
+    .replace(/&gt;/gi, '>')
+    .replace(/&nbsp;/gi, ' ');
 }
 
 /**

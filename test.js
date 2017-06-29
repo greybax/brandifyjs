@@ -69,7 +69,7 @@ const nestedHtmlTags = `
 
 const list = `<ul class="linkedin class-icon">
   <li class="google icon">
-    <a class="google icon"> google </a>
+   google <a class="google icon"> google </a>
   </li>
 </ul>
 `;
