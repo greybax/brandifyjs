@@ -5,6 +5,8 @@
 [![Coveralls Status][coveralls-image]][coveralls-url]
 [![Dependency Status][depstat-image]][depstat-url]
 [![DevDependency Status][depstat-dev-image]][depstat-dev-url]
+[![DevDependency Status][depstat-dev-image]][depstat-dev-url]
+[![JS.ORG Status][jsorg-image]][jsorg-url]
 
 We are all to used to use different kind of emojies. Each of them has some code which transforms to icon.
 So what about transform typical words in text to icon? This tool is all about it! :sunny: :surfer:
@@ -111,3 +113,6 @@ MIT © [Aleksandr Filatov](https://alfilatov.com)
 
 [depstat-dev-url]: https://david-dm.org/greybax/brandifyjs
 [depstat-dev-image]: https://david-dm.org/greybax/brandifyjs/dev-status.svg?style=flat-square
+
+[jsorg-url]: http://js.org
+[jsorg-image]: https://img.shields.io/badge/js.org-dns-ffb400.svg?style=flat-square
