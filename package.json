@@ -13,7 +13,7 @@
     "dev": "lite-server",
     "browserify": "browserify -t package-json-versionify --standalone brandify src/index.js | uglifyjs --compress --mangle -o dist/brandifyjs-browser.js",
     "browserify-dev": "browserify -t package-json-versionify --standalone brandify src/index.js -o dist/brandifyjs-browser.js",
-    "jspm": "jspm install github:danleech/simple-icons"
+    "jspm": "jspm install github:danleech/simple-icons@develop"
   },
   "repository": {
     "type": "git",
@@ -59,7 +59,7 @@
   },
   "jspm": {
     "dependencies": {
-      "danleech/simple-icons": "github:danleech/simple-icons@master"
+      "danleech/simple-icons": "github:danleech/simple-icons@develop"
     },
     "devDependencies": {
       "babel": "npm:babel-core@^5.8.24",
