@@ -85,7 +85,7 @@ describe('brandify', () => {
     let str = brandify('I like github!', 'before');
     expect(str).is.not.equal('I like github!');
     expect(str).is.not.contain('I like github <svg');
-    expect(str).is.contain('</svg>&nbsp;GitHub');
+    expect(str).is.contain('</svg>\n&nbsp;GitHub');
     expect(str).is.contain('class="svg-brandify brandify-icon-github"');
     done();
   });
