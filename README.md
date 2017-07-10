@@ -5,7 +5,6 @@
 [![Coveralls Status][coveralls-image]][coveralls-url]
 [![Dependency Status][depstat-image]][depstat-url]
 [![DevDependency Status][depstat-dev-image]][depstat-dev-url]
-[![DevDependency Status][depstat-dev-image]][depstat-dev-url]
 [![JS.ORG Status][jsorg-image]][jsorg-url]
 
 We are all to used to use different kind of emojies. Each of them has some code which transforms to icon.
