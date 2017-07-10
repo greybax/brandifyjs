@@ -11,7 +11,7 @@ We are all to used to use different kind of emojies. Each of them has some code 
 So what about transform typical words in text to icon? This tool is all about it! :sunny: :surfer:
 
 > This is a JS library which helps you to add company icons in your text.
-Icons are using from cool repository :cherries: :rocket: - [simple-icons](https://github.com/danleech/simple-icons) 
+Icons are using from cool repository :cherries: :rocket: - [simple-icons](https://github.com/simple-icons/simple-icons) 
 
 ## Where I can use it?
 
