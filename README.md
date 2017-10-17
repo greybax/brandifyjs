@@ -74,8 +74,8 @@ Thanks for cool icons to <svg class="svg-brandify brandify-icon-simpleicons" fil
 Clone the repo.
     
 ```
-// install npm and jspm scripts
-npm run install-all
+// install npm scripts
+npm install
 
 // create modified dist/simple-icons.json
 npm run init

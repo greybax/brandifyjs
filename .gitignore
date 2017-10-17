@@ -2,7 +2,6 @@
 .DS_Store
 ._*
 node_modules
-jspm_packages
 npm-debug.log
 coverage
 

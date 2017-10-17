@@ -1,6 +1,6 @@
 'use strict';
 
-const icons = require('../jspm_packages/github/simple-icons/simple-icons@develop/_data/simple-icons.json').icons;
+const icons = require('../node_modules/simple-icons/_data/simple-icons.json').icons;
 const fs = require('fs');
 
 module.exports = {
@@ -25,7 +25,7 @@ function prepareSimpleIconsJson() {
       .replace(/ |[.]|[-]|[’]|[!]/gi, '')
       .replace(/[+]/gi, 'plus');
     const color = icons[i].hex;
-    const content = fs.readFileSync(`./jspm_packages/github/simple-icons/simple-icons@develop/icons/${name}.svg`, 'utf8');
+    const content = fs.readFileSync(`./node_modules/simple-icons/icons/${name}.svg`, 'utf8');
 
     const replacer = svgPatternReplacer(name, color);
     const svg = insertTo(content, '<svg'.length + 1, replacer);
