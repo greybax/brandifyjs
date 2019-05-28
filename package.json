@@ -43,7 +43,7 @@
   },
   "homepage": "https://github.com/greybax/brandifyjs#readme",
   "dependencies": {
-    "is-html": "^1.1.0"
+    "is-html": "^2.0.0"
   },
   "devDependencies": {
     "simple-icons": "1.2.7",
