@@ -7,6 +7,8 @@
 [![DevDependency Status][depstat-dev-image]][depstat-dev-url]
 [![JS.ORG Status][jsorg-image]][jsorg-url]
 
+[![Patreon](https://c5.patreon.com/external/logo/become_a_patron_button.png)](https://www.patreon.com/bePatron?u=14980891)
+
 We are all to used to use different kind of emojies. Each of them has some code which transforms to icon.
 So what about transform typical words in text to icon? This tool is all about it! :sunny: :surfer:
 
