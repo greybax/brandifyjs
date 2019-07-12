@@ -50,7 +50,7 @@
     "browserify": "16.3.0",
     "chai": "4.2.0",
     "chai-files": "1.4.0",
-    "coveralls": "3.0.4",
+    "coveralls": "3.0.5",
     "istanbul": "0.4.5",
     "lite-server": "2.5.3",
     "mocha": "6.1.4",
