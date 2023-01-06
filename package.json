@@ -46,7 +46,7 @@
     "is-html": "^2.0.0"
   },
   "devDependencies": {
-    "simple-icons": "3.6.1",
+    "simple-icons": "4.7.0",
     "browserify": "16.5.1",
     "chai": "4.2.0",
     "chai-files": "1.4.0",
